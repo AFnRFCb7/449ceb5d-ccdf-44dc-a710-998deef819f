@@ -1,6 +1,6 @@
 {
     inputs = { } ;
-    output =
+    outputs =
         { self } :
             let
                 implementation =
