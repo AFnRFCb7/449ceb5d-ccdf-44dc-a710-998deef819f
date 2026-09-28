@@ -14,7 +14,8 @@
                                                 buildy =
                                                     lib.mkOption
                                                         {
-                                                            default =
+                                                            default = ignore : pkgs.coreutils ;
+                                                            default2 =
                                                                 input :
                                                                     pkgs.runCommand
                                                                         "build"
