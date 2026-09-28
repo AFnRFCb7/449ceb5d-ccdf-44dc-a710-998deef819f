@@ -16,12 +16,11 @@
                                                         {
                                                             default =
                                                                 input :
-                                                                    pkgs.coreutils ;
-#                                                                    pkgs.runCommand
-#                                                                        "build"
-#                                                                        {
-#                                                                            nativeBuildInputs =
-#                                                                                [
+                                                                    pkgs.runCommand
+                                                                        "build"
+                                                                        {
+                                                                            nativeBuildInputs =
+                                                                                [
 #                                                                                    (
 #                                                                                        pkgs.writeShellApplication
 #                                                                                            {
@@ -76,11 +75,11 @@
 #                                                                                                    '' ;
 #                                                                                            }
 #                                                                                    )
-#                                                                                ]
-#                                                                                ''
-#                                                                                    build "$out"
-#                                                                                '' ;
-#                                                                        } ;
+                                                                                ]
+                                                                                ''
+                                                                                    build "$out"
+                                                                                '' ;
+                                                                        } ;
                                                             type = lib.types.functionTo lib.types.package ;
                                                         } ;
                                                 execute =
