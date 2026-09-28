@@ -69,8 +69,8 @@
                                                                                                     ''
                                                                                                         OUT="$1"
                                                                                                         mkdir --parents "$OUT"
-                                                                                                        cat ${ input }/package.json > "$OUT/package.json"
-                                                                                                        cd ${ input }
+                                                                                                        cat ${ builtins.toString input }/package.json > "$OUT/package.json"
+                                                                                                        cd ${ builtins.toString input }
                                                                                                         find node_modules.exploded -mindepth 1 -maxdepth 1 -exec implode {} "$OUT" \;
                                                                                                     '' ;
                                                                                             }
@@ -80,7 +80,7 @@
                                                                                     build "$out"
                                                                                 '' ;
                                                                         } ;
-                                                            # type = lib.types.functionTo lib.types.anything ;
+                                                            type = lib.types.functionTo lib.types.package ;
                                                         } ;
                                                 execute =
                                                     lib.mkOption
