@@ -16,7 +16,7 @@
                                                         {
                                                             default =
                                                                 input :
-                                                                    pkgs.runShellCommand
+                                                                    pkgs.runCommand
                                                                         "build"
                                                                         {
                                                                             nativeBuildInputs =
