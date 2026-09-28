@@ -9,7 +9,7 @@
                             implementation =
                                 { config , lib , pkgs , ... } :
                                     {
-                                        options.node-packages =
+                                        options.node-package =
                                             {
                                                 build =
                                                     lib.types.mkOption
