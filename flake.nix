@@ -9,9 +9,9 @@
                             implementation =
                                 { config , lib , pkgs , ... } :
                                     {
-                                        options.node-package.test =
+                                        options.node-package =
                                             {
-                                                build =
+                                                buildy =
                                                     lib.mkOption
                                                         {
                                                             default =
