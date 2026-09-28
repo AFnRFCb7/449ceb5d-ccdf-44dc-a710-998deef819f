@@ -14,9 +14,9 @@
                                                 build =
                                                     lib.mkOption
                                                         {
-                                                            default = ignore : pkgs.coreutils ;
-#                                                            default2 =
-#                                                                input :
+                                                            default =
+                                                                input :
+                                                                    pkgs.coreutils ;
 #                                                                    pkgs.runCommand
 #                                                                        "build"
 #                                                                        {
