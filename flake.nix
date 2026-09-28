@@ -169,6 +169,7 @@
                                                                                 ''
                                                                                     MESSAGE="$1"
                                                                                     cat ${ builtins.toFile "package.json" ( builtins.toJSON package ) } > "package.json"
+                                                                                    git add package.json
                                                                                     npm install
                                                                                     find node_modules -exec explode {} \;
                                                                                     git clean -fd
