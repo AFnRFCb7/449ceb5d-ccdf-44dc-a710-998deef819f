@@ -86,14 +86,15 @@
                                                     lib.mkOption
                                                         {
                                                             default =
-                                                                { command , name , package } :
+                                                                { command , name , package , work-directory } :
                                                                     pkgs.writeShellApplication
                                                                         {
                                                                             name = name ;
                                                                             runtimeInputs = [ pkgs.nodejs ] ;
                                                                             text =
                                                                                 ''
-                                                                                    cd ${ package }
+                                                                                    cp --recursive ${ package }/. ${ work-directory }
+                                                                                    cd ${ work-directory }
                                                                                     npm ${ command }
                                                                                 '' ;
                                                                         } ;
