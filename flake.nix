@@ -94,7 +94,7 @@
                                                                                 [
                                                                                     pkgs.coreutils
                                                                                     pkgs.git
-                                                                                    pkgs.node
+                                                                                    pkgs.nodejs
                                                                                     (
                                                                                         pkgs.writeShellApplication
                                                                                             {
