@@ -75,11 +75,11 @@
 #                                                                                                    '' ;
 #                                                                                            }
 #                                                                                    )
-                                                                                ]
-                                                                                ''
-                                                                                    build "$out"
-                                                                                '' ;
-                                                                        } ;
+                                                                                ] ;
+                                                                            }
+                                                                            ''
+                                                                                build "$out"
+                                                                            '' ;
                                                             type = lib.types.functionTo lib.types.package ;
                                                         } ;
                                                 execute =
