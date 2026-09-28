@@ -48,7 +48,7 @@
                                                                                                                             PERMISSIONS="$( jq --raw-output ".permissions" "$RELATIVE_INPUT_FILE/metadata.json" )" || failure 3808418135747408
                                                                                                                             TAG="$( jq --raw-output ".tag" "$RELATIVE_INPUT_FILE/metadata.json" )" || failure 2878641484898157
                                                                                                                             TYPE="$( jq --raw-output ".type" "$RELATIVE_INPUT_FILE/metadata.json" )" || failure 1111350995632152
-                                                                                                                            RELATIVE_OUTPUT_FILE="node_modules/$TAG"
+                                                                                                                            RELATIVE_OUTPUT_FILE="$OUT/node_modules/$TAG"
                                                                                                                             RELATIVE_OUTPUT_DIRECTORY="$( dirname "$RELATIVE_OUTPUT_FILE" )" || failure 9352183167901733
                                                                                                                             mkdir --parents "$RELATIVE_OUTPUT_DIRECTORY"
                                                                                                                             if [[ "$TYPE" == "directory" ]]
