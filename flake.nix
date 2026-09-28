@@ -82,6 +82,23 @@
                                                                         } ;
                                                             type = lib.types.functionTo lib.types.package ;
                                                         } ;
+                                                execute =
+                                                    lib.mkOption
+                                                        {
+                                                            default =
+                                                                { command , name , package } :
+                                                                    pkgs.writeShellApplication
+                                                                        {
+                                                                            name = name ;
+                                                                            runtimeInputs = [ pkgs.nodejs ] ;
+                                                                            text =
+                                                                                ''
+                                                                                    cd ${ package }
+                                                                                    npm ${ command }
+                                                                                '' ;
+                                                                        } ;
+                                                            type = lib.types.functionTo lib.types.package ;
+                                                        } ;
                                                 fetch =
                                                     lib.mkOption
                                                         {
