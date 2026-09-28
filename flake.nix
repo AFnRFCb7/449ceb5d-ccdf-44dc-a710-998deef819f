@@ -134,16 +134,22 @@
                                                                                                         echo 9042386702303448 >&2
                                                                                                         echo "exploding $TAG"
                                                                                                         HASH="$( echo "$TAG" | sha512sum | cut --characters 1-128 )" || failure 3652604998111458
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         RELATIVE_OUTPUT_FILE="node_modules.exploded/$HASH"
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         PERMISSIONS="$( stat --printf %a "$ABSOLUTE_INPUT_FILE" )" || failure 9035064744130892
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         TYPE="$( stat --printf %F "$ABSOLUTE_INPUT_FILE" )" || failure 9216061067032392
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         if [[ -d "$RELATIVE_OUTPUT_FILE" ]]
                                                                                                         then
                                                                                                             failure 0701446510561736 "$HASH" "$PERMISSIONS" "$TAG" "$TYPE"
                                                                                                         else
                                                                                                             mkdir --parents "$RELATIVE_OUTPUT_FILE"
                                                                                                         fi
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         cd "$RELATIVE_OUTPUT_FILE"
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         jq \
                                                                                                             --null-input \
                                                                                                             --arg PERMISSIONS "$PERMISSIONS" \
@@ -154,6 +160,7 @@
                                                                                                                 "tag" : $TAG ,
                                                                                                                 "type" : $TYPE
                                                                                                             }' > metadata.json
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         if [[ -d "$ABSOLUTE_INPUT_FILE" ]]
                                                                                                         then
                                                                                                             :
@@ -165,7 +172,9 @@
                                                                                                         else
                                                                                                             failure 9059723240083957 "$ABSOLUTE_INPUT_FILE" "$PERMISSIONS" "$TAG" "$TYPE"
                                                                                                         fi
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         git add .
+                                                                                                        echo 9042386702303448 >&2
                                                                                                     '' ;
                                                                                             }
                                                                                     )
