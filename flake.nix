@@ -69,8 +69,8 @@
                                                                                                     ''
                                                                                                         OUT="$1"
                                                                                                         mkdir --parents "$OUT"
-                                                                                                        cat ${ builtins.toString input }/package.json > "$OUT/package.json"
-                                                                                                        cd ${ builtins.toString input }
+                                                                                                        cat ${ input }/package.json > "$OUT/package.json"
+                                                                                                        cd ${ input }
                                                                                                         find node_modules.exploded -mindepth 1 -maxdepth 1 -exec implode {} "$OUT" \;
                                                                                                     '' ;
                                                                                             }
