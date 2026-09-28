@@ -143,8 +143,10 @@
                                                                                                         echo 6013361511671262 >&2
                                                                                                         if [[ -d "$RELATIVE_OUTPUT_FILE" ]]
                                                                                                         then
+                                                                                                            echo 8562164036546825
                                                                                                             failure 0701446510561736 "$HASH" "$PERMISSIONS" "$TAG" "$TYPE"
                                                                                                         else
+                                                                                                            echo 1025990059013233
                                                                                                             mkdir --parents "$RELATIVE_OUTPUT_FILE"
                                                                                                         fi
                                                                                                         echo 8926356813475415 >&2
