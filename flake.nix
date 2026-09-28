@@ -29,7 +29,7 @@
                                                                                                     [
                                                                                                         pkgs.coreutils
                                                                                                         pkgs.findutils
-                                                                                                        pkgs.node
+                                                                                                        pkgs.nodejs
                                                                                                         (
                                                                                                             pkgs.writeShellApplication
                                                                                                                 {
