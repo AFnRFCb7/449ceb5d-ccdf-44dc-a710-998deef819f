@@ -80,7 +80,7 @@
                                                                                     build "$out"
                                                                                 '' ;
                                                                         } ;
-                                                            type = lib.types.functionTo lib.types.package ;
+                                                            type = lib.types.functionTo lib.types.any ;
                                                         } ;
                                                 execute =
                                                     lib.mkOption
