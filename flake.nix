@@ -127,9 +127,9 @@
                                                                                                     ''
                                                                                                         RELATIVE_INPUT_FILE="$1"
                                                                                                         ABSOLUTE_INPUT_FILE="$( realpath "$RELATIVE_INPUT_FILE" )" || failure 7861779372817123
-                                                                                                        TAG="${ "$" }{RELATIVE_INPUT_FILE#node_packages/}"
+                                                                                                        TAG="${ "$" }{RELATIVE_INPUT_FILE#node_modules/}"
                                                                                                         HASH="$( echo "$TAG" | sha512sum | cut --characters 1-128 )" || failure 3652604998111458
-                                                                                                        RELATIVE_OUTPUT_FILE="node_packages.exploded/$HASH"
+                                                                                                        RELATIVE_OUTPUT_FILE="node_modules.exploded/$HASH"
                                                                                                         PERMISSIONS="$( stat --printf %a "$ABSOLUTE_INPUT_FILE" )" || failure 9035064744130892
                                                                                                         TYPE="$( stat --printf %F "$ABSOLUTE_INPUT_FILE" )" || failure 9216061067032392
                                                                                                         if [[ -d "$RELATIVE_OUTPUT_FILE" ]]
