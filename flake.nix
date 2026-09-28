@@ -125,9 +125,13 @@
                                                                                                     ] ;
                                                                                                 text =
                                                                                                     ''
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         RELATIVE_INPUT_FILE="$1"
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         ABSOLUTE_INPUT_FILE="$( realpath "$RELATIVE_INPUT_FILE" )" || failure 7861779372817123
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         TAG="${ "$" }{RELATIVE_INPUT_FILE#node_modules/}"
+                                                                                                        echo 9042386702303448 >&2
                                                                                                         echo "exploding $TAG"
                                                                                                         HASH="$( echo "$TAG" | sha512sum | cut --characters 1-128 )" || failure 3652604998111458
                                                                                                         RELATIVE_OUTPUT_FILE="node_modules.exploded/$HASH"
