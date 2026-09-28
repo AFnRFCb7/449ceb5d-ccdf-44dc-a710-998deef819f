@@ -11,7 +11,7 @@
                                     {
                                         options.node-package =
                                             {
-                                                buildy =
+                                                build =
                                                     lib.mkOption
                                                         {
                                                             default = ignore : pkgs.coreutils ;
@@ -81,7 +81,7 @@
 #                                                                                    build "$out"
 #                                                                                '' ;
 #                                                                        } ;
-                                                            # type = lib.types.functionTo lib.types.package ;
+                                                            type = lib.types.functionTo lib.types.package ;
                                                         } ;
                                                 execute =
                                                     lib.mkOption
