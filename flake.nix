@@ -12,7 +12,7 @@
                                         options.node-package =
                                             {
                                                 build =
-                                                    lib.types.mkOption
+                                                    lib.mkOption
                                                         {
                                                             default =
                                                                 input :
