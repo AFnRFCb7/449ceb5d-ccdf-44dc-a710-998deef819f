@@ -15,72 +15,72 @@
                                                     lib.mkOption
                                                         {
                                                             default = ignore : pkgs.coreutils ;
-                                                            default2 =
-                                                                input :
-                                                                    pkgs.runCommand
-                                                                        "build"
-                                                                        {
-                                                                            nativeBuildInputs =
-                                                                                [
-                                                                                    (
-                                                                                        pkgs.writeShellApplication
-                                                                                            {
-                                                                                                name = "build" ;
-                                                                                                runtimeInputs =
-                                                                                                    [
-                                                                                                        pkgs.coreutils
-                                                                                                        pkgs.findutils
-                                                                                                        pkgs.node
-                                                                                                        (
-                                                                                                            pkgs.writeShellApplication
-                                                                                                                {
-                                                                                                                    name = "implode" ;
-                                                                                                                    runtimeInputs =
-                                                                                                                        [
-                                                                                                                            pkgs.coreutils
-                                                                                                                            pkgs.findutils
-                                                                                                                            pkgs.jq
-                                                                                                                            ( failure 3714882433516143 )
-                                                                                                                        ] ;
-                                                                                                                    text =
-                                                                                                                        ''
-                                                                                                                            RELATIVE_INPUT_FILE="$1"
-                                                                                                                            OUT="$2"
-                                                                                                                            PERMISSIONS="$( jq --raw-output ".permissions" "$RELATIVE_INPUT_FILE/metadata.json" )" || failure 3808418135747408
-                                                                                                                            TAG="$( jq --raw-output ".tag" "$RELATIVE_INPUT_FILE/metadata.json" )" || failure 2878641484898157
-                                                                                                                            TYPE="$( jq --raw-output ".type" "$RELATIVE_INPUT_FILE/metadata.json" )" || failure 1111350995632152
-                                                                                                                            RELATIVE_OUTPUT_FILE="node_modules/$TAG"
-                                                                                                                            RELATIVE_OUTPUT_DIRECTORY="$( dirname "$RELATIVE_OUTPUT_FILE" ) || failure 9352183167901733
-                                                                                                                            mkdir --parents "$RELATIVE_OUTPUT_DIRECTORY"
-                                                                                                                            if [[ "$TYPE" == "directory" ]]
-                                                                                                                            then
-                                                                                                                                mkdir --parents "$RELATIVE_OUTPUT_FILE"
-                                                                                                                            elif [[ "$TYPE" == "regular file" ]]
-                                                                                                                            then
-                                                                                                                                cat "$TAG"/parts/* > "$RELATIVE_OUTPUT_FILE"
-                                                                                                                            else
-                                                                                                                                failure 1129645981666929 "$RELATIVE_INPUT_FILE" "$PERMISSIONS" "$TAG" "$TYPE"
-                                                                                                                            fi
-                                                                                                                            chmod "$PERMISSIONS" "$RELATIVE_OUTPUT_FILE"
-                                                                                                                        '' ;
-                                                                                                                }
-                                                                                                        )
-                                                                                                    ] ;
-                                                                                                text =
-                                                                                                    ''
-                                                                                                        OUT="$1"
-                                                                                                        mkdir --parents "$OUT"
-                                                                                                        cat ${ builtins.toString input }/package.json > "$OUT/package.json"
-                                                                                                        cd ${ builtins.toString input }
-                                                                                                        find node_modules.exploded -mindepth 1 -maxdepth 1 -exec implode {} "$OUT" \;
-                                                                                                    '' ;
-                                                                                            }
-                                                                                    )
-                                                                                ]
-                                                                                ''
-                                                                                    build "$out"
-                                                                                '' ;
-                                                                        } ;
+#                                                            default2 =
+#                                                                input :
+#                                                                    pkgs.runCommand
+#                                                                        "build"
+#                                                                        {
+#                                                                            nativeBuildInputs =
+#                                                                                [
+#                                                                                    (
+#                                                                                        pkgs.writeShellApplication
+#                                                                                            {
+#                                                                                                name = "build" ;
+#                                                                                                runtimeInputs =
+#                                                                                                    [
+#                                                                                                        pkgs.coreutils
+#                                                                                                        pkgs.findutils
+#                                                                                                        pkgs.node
+#                                                                                                        (
+#                                                                                                            pkgs.writeShellApplication
+#                                                                                                                {
+#                                                                                                                    name = "implode" ;
+#                                                                                                                    runtimeInputs =
+#                                                                                                                        [
+#                                                                                                                            pkgs.coreutils
+#                                                                                                                            pkgs.findutils
+#                                                                                                                            pkgs.jq
+#                                                                                                                            ( failure 3714882433516143 )
+#                                                                                                                        ] ;
+#                                                                                                                    text =
+#                                                                                                                        ''
+#                                                                                                                            RELATIVE_INPUT_FILE="$1"
+#                                                                                                                            OUT="$2"
+#                                                                                                                            PERMISSIONS="$( jq --raw-output ".permissions" "$RELATIVE_INPUT_FILE/metadata.json" )" || failure 3808418135747408
+#                                                                                                                            TAG="$( jq --raw-output ".tag" "$RELATIVE_INPUT_FILE/metadata.json" )" || failure 2878641484898157
+#                                                                                                                            TYPE="$( jq --raw-output ".type" "$RELATIVE_INPUT_FILE/metadata.json" )" || failure 1111350995632152
+#                                                                                                                            RELATIVE_OUTPUT_FILE="node_modules/$TAG"
+#                                                                                                                            RELATIVE_OUTPUT_DIRECTORY="$( dirname "$RELATIVE_OUTPUT_FILE" ) || failure 9352183167901733
+#                                                                                                                            mkdir --parents "$RELATIVE_OUTPUT_DIRECTORY"
+#                                                                                                                            if [[ "$TYPE" == "directory" ]]
+#                                                                                                                            then
+#                                                                                                                                mkdir --parents "$RELATIVE_OUTPUT_FILE"
+#                                                                                                                            elif [[ "$TYPE" == "regular file" ]]
+#                                                                                                                            then
+#                                                                                                                                cat "$TAG"/parts/* > "$RELATIVE_OUTPUT_FILE"
+#                                                                                                                            else
+#                                                                                                                                failure 1129645981666929 "$RELATIVE_INPUT_FILE" "$PERMISSIONS" "$TAG" "$TYPE"
+#                                                                                                                            fi
+#                                                                                                                            chmod "$PERMISSIONS" "$RELATIVE_OUTPUT_FILE"
+#                                                                                                                        '' ;
+#                                                                                                                }
+#                                                                                                        )
+#                                                                                                    ] ;
+#                                                                                                text =
+#                                                                                                    ''
+#                                                                                                        OUT="$1"
+#                                                                                                        mkdir --parents "$OUT"
+#                                                                                                        cat ${ builtins.toString input }/package.json > "$OUT/package.json"
+#                                                                                                        cd ${ builtins.toString input }
+#                                                                                                        find node_modules.exploded -mindepth 1 -maxdepth 1 -exec implode {} "$OUT" \;
+#                                                                                                    '' ;
+#                                                                                            }
+#                                                                                    )
+#                                                                                ]
+#                                                                                ''
+#                                                                                    build "$out"
+#                                                                                '' ;
+#                                                                        } ;
                                                             # type = lib.types.functionTo lib.types.package ;
                                                         } ;
                                                 execute =
