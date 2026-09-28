@@ -83,7 +83,7 @@
                                                             type = lib.types.functionTo lib.types.package ;
                                                         } ;
                                                 fetch =
-                                                    lib.types.mkOption
+                                                    lib.mkOption
                                                         {
                                                             default =
                                                                 package :
