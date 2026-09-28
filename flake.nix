@@ -9,7 +9,7 @@
                             implementation =
                                 { config , lib , pkgs , ... } :
                                     {
-                                        options.node-package =
+                                        options.node-package.test =
                                             {
                                                 build =
                                                     lib.mkOption
