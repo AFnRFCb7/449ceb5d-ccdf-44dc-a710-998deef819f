@@ -69,7 +69,7 @@
                                                                                                     ''
                                                                                                         OUT="$1"
                                                                                                         mkdir --parents "$OUT"
-                                                                                                        cat ${ input }/package.json > "$OUT/package.json"
+                                                                                                        cp --recursive ${ input }/. "$OUT"
                                                                                                         cd ${ input }
                                                                                                         find node_modules.exploded -mindepth 1 -maxdepth 1 -exec implode {} "$OUT" \;
                                                                                                     '' ;
