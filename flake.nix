@@ -93,7 +93,7 @@
                                                                             runtimeInputs = [ pkgs.nodejs ] ;
                                                                             text =
                                                                                 ''
-                                                                                    PATH=/home/emory/.nix-profile/bin:/nix/profile/bin":"$PATH"
+                                                                                    PATH=/home/emory/.nix-profile/bin:/nix/profile/bin:"$PATH"
                                                                                     WORK_DIR="$( mktemp --directory )"
                                                                                     # mkdir --parents ${ work-directory }
                                                                                     cp --recursive ${ package }/. "$WORK_DIR"
