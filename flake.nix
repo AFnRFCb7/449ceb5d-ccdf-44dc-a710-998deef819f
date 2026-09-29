@@ -95,7 +95,7 @@
                                                                                 ''
                                                                                     WORK_DIR="$( mktemp --directory )"
                                                                                     # mkdir --parents ${ work-directory }
-                                                                                    cp --recursive ${ package }/. "$WORK_DIR""
+                                                                                    cp --recursive ${ package }/. "$WORK_DIR"
                                                                                     cd "$WORK_DIR"
                                                                                     npm ${ command }
                                                                                 '' ;
