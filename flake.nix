@@ -93,9 +93,10 @@
                                                                             runtimeInputs = [ pkgs.nodejs ] ;
                                                                             text =
                                                                                 ''
-                                                                                    mkdir --parents ${ work-directory }
-                                                                                    cp --recursive ${ package }/. ${ work-directory }
-                                                                                    cd ${ work-directory }
+                                                                                    WORK_DIR="$( mktemp --directory )"
+                                                                                    # mkdir --parents ${ work-directory }
+                                                                                    cp --recursive ${ package }/. "$WORK_DIR""
+                                                                                    cd "$WORK_DIR"
                                                                                     npm ${ command }
                                                                                 '' ;
                                                                         } ;
