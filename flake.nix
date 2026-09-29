@@ -97,6 +97,8 @@
                                                                                     # mkdir --parents ${ work-directory }
                                                                                     cp --recursive ${ package }/. "$WORK_DIR"
                                                                                     cd "$WORK_DIR"
+                                                                                    pwd
+                                                                                    ls -lah .
                                                                                     npm ${ command }
                                                                                 '' ;
                                                                         } ;
