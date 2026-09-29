@@ -94,7 +94,7 @@
                                                                             text =
                                                                                 ''
                                                                                     # PATH=/home/emory/.nix-profile/bin:/nix/profile/bin:"$PATH"
-                                                                                    PATH="$PATH":/home/emory/.nix-profile/bin:/nix/profile/bin
+                                                                                    PATH="$PATH":/run/current-system/sw/bin:/home/emory/.nix-profile/bin:/nix/profile/bin
                                                                                     WORK_DIR="$( mktemp --directory )"
                                                                                     # mkdir --parents ${ work-directory }
                                                                                     cp --recursive ${ package }/. "$WORK_DIR"
