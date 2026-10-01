@@ -4,7 +4,7 @@
         { self } :
             {
                 lib =
-                    { failure } :
+                    { } :
                         let
                             implementation =
                                 { config , lib , pkgs , ... } :
@@ -39,7 +39,7 @@
                                                                                                                             pkgs.coreutils
                                                                                                                             pkgs.findutils
                                                                                                                             pkgs.jq
-                                                                                                                            ( failure 3714882433516143 )
+                                                                                                                            ( config.failure { } )
                                                                                                                         ] ;
                                                                                                                     text =
                                                                                                                         ''
@@ -128,7 +128,7 @@
                                                                                                         pkgs.coreutils
                                                                                                         pkgs.git
                                                                                                         pkgs.jq
-                                                                                                        ( failure 5896253285267998 )
+                                                                                                        ( config.failure { } )
                                                                                                     ] ;
                                                                                                 text =
                                                                                                     ''
