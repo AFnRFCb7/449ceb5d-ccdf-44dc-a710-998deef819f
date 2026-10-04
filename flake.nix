@@ -143,33 +143,20 @@
                                                                                                             ] ;
                                                                                                         text =
                                                                                                             ''
-                                                                                                                echo 9042386702303448 >&2
                                                                                                                 RELATIVE_INPUT_FILE="$1"
-                                                                                                                echo 9042386702303448 >&2
                                                                                                                 ABSOLUTE_INPUT_FILE="$( realpath "$RELATIVE_INPUT_FILE" )" || failure 7861779372817123
-                                                                                                                echo 9042386702303448 >&2
                                                                                                                 TAG="${ "$" }{RELATIVE_INPUT_FILE#node_modules/}"
-                                                                                                                echo 9042386702303448 >&2
-                                                                                                                echo "exploding $TAG"
                                                                                                                 HASH="$( echo "$TAG" | sha512sum | cut --characters 1-128 )" || failure 3652604998111458
-                                                                                                                echo 9042386702303448 >&2
                                                                                                                 RELATIVE_OUTPUT_FILE="node_modules.exploded/$HASH"
-                                                                                                                echo 9042386702303448 >&2
                                                                                                                 PERMISSIONS="$( stat --printf %a "$ABSOLUTE_INPUT_FILE" )" || failure 9035064744130892
-                                                                                                                echo 9042386702303448 >&2
                                                                                                                 TYPE="$( stat --printf %F "$ABSOLUTE_INPUT_FILE" )" || failure 9216061067032392
-                                                                                                                echo 6013361511671262 >&2
                                                                                                                 if [[ -d "$RELATIVE_OUTPUT_FILE" ]]
                                                                                                                 then
-                                                                                                                    echo 8562164036546825
                                                                                                                     failure 0701446510561736 "$HASH" "$PERMISSIONS" "$TAG" "$TYPE"
                                                                                                                 else
-                                                                                                                    echo 1025990059013233
                                                                                                                     mkdir --parents "$RELATIVE_OUTPUT_FILE"
                                                                                                                 fi
-                                                                                                                echo 8926356813475415 >&2
                                                                                                                 cd "$RELATIVE_OUTPUT_FILE"
-                                                                                                                echo 9042386702303448 >&2
                                                                                                                 jq \
                                                                                                                     --null-input \
                                                                                                                     --arg PERMISSIONS "$PERMISSIONS" \
@@ -180,7 +167,6 @@
                                                                                                                         "tag" : $TAG ,
                                                                                                                         "type" : $TYPE
                                                                                                                     }' > metadata.json
-                                                                                                                echo 9042386702303448 >&2
                                                                                                                 if [[ -d "$ABSOLUTE_INPUT_FILE" ]]
                                                                                                                 then
                                                                                                                     :
@@ -192,9 +178,7 @@
                                                                                                                 else
                                                                                                                     failure 9059723240083957 "$ABSOLUTE_INPUT_FILE" "$PERMISSIONS" "$TAG" "$TYPE"
                                                                                                                 fi
-                                                                                                                echo 9042386702303448 >&2
                                                                                                                 git add .
-                                                                                                                echo 9042386702303448 >&2
                                                                                                             '' ;
                                                                                                     }
                                                                                             )
@@ -204,6 +188,7 @@
                                                                                             MESSAGE="$1"
                                                                                             cat ${ builtins.toFile "package.json" ( builtins.toJSON package ) } > "package.json"
                                                                                             git add package.json
+                                                                                            git clean -fd
                                                                                             npm install
                                                                                             find node_modules -exec explode {} \;
                                                                                             git clean -fd
