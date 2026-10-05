@@ -67,7 +67,7 @@
                                                                                                                                         mkdir --parents "$RELATIVE_OUTPUT_FILE"
                                                                                                                                     elif [[ "$TYPE" == "regular file" ]]
                                                                                                                                     then
-                                                                                                                                        cat "$TAG"/parts/* > "$RELATIVE_OUTPUT_FILE"
+                                                                                                                                        cat "$RELATIVE_INPUT_FILE"/parts/* > "$RELATIVE_OUTPUT_FILE"
                                                                                                                                     else
                                                                                                                                         failure 1129645981666929 "$RELATIVE_INPUT_FILE" "$PERMISSIONS" "$TAG" "$TYPE"
                                                                                                                                     fi
