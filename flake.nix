@@ -40,7 +40,6 @@
                                                                                                             [
                                                                                                                 _pkgs.coreutils
                                                                                                                 _pkgs.findutils
-                                                                                                                _pkgs.nodejs
                                                                                                                 (
                                                                                                                     _pkgs.writeShellApplication
                                                                                                                         {
@@ -138,7 +137,6 @@
                                                                                                             [
                                                                                                                 _pkgs.coreutils
                                                                                                                 _pkgs.git
-                                                                                                                _pkgs.jq
                                                                                                                 ( _config.failure { } )
                                                                                                             ] ;
                                                                                                         text =
@@ -167,6 +165,7 @@
                                                                                                                         "tag" : $TAG ,
                                                                                                                         "type" : $TYPE
                                                                                                                     }' > metadata.json
+                                                                                                                git add metadata.json
                                                                                                                 if [[ -d "$ABSOLUTE_INPUT_FILE" ]]
                                                                                                                 then
                                                                                                                     :
