@@ -188,7 +188,7 @@
                                                                                             MESSAGE="$1"
                                                                                             cat ${ builtins.toFile "package.json" ( builtins.toJSON package ) } > "package.json"
                                                                                             git add package.json
-                                                                                            git rm --recursive --ignor-unmatch node_modules.exploded
+                                                                                            git rm --recursive --ignore-unmatch node_modules.exploded
                                                                                             npm install
                                                                                             find node_modules -exec explode {} \;
                                                                                             git clean -fd
