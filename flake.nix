@@ -129,7 +129,7 @@
                                                                                         [
                                                                                             _pkgs.coreutils
                                                                                             _pkgs.git
-                                                                                            _pkgs.nodejs
+                                                                                            _pkgs.nodejs_20
                                                                                             (
                                                                                                 _pkgs.writeShellApplication
                                                                                                     {
