@@ -84,8 +84,6 @@
                                                                                                                 if [[ -d node_modules.exploded ]]
                                                                                                                 then
                                                                                                                     find node_modules.exploded -mindepth 1 -maxdepth 1 -exec implode {} "$OUT" \;
-                                                                                                                else
-                                                                                                                    mkdir node_modules
                                                                                                                 fi
                                                                                                             '' ;
                                                                                                     }
