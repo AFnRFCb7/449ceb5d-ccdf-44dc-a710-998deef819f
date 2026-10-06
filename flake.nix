@@ -81,7 +81,12 @@
                                                                                                                 mkdir --parents "$OUT"
                                                                                                                 cp --recursive ${ input }/. "$OUT"
                                                                                                                 cd ${ input }
-                                                                                                                find node_modules.exploded -mindepth 1 -maxdepth 1 -exec implode {} "$OUT" \;
+                                                                                                                if [[ -d node_modules.exploded ]]
+                                                                                                                then
+                                                                                                                    find node_modules.exploded -mindepth 1 -maxdepth 1 -exec implode {} "$OUT" \;
+                                                                                                                else
+                                                                                                                    mkdir node_modules
+                                                                                                                fi
                                                                                                             '' ;
                                                                                                     }
                                                                                             )
@@ -103,14 +108,10 @@
                                                                                     runtimeInputs = [ _pkgs.nodejs ] ;
                                                                                     text =
                                                                                         ''
-                                                                                            # PATH=/home/emory/.nix-profile/bin:/nix/profile/bin:"$PATH"
                                                                                             PATH="$PATH":/run/current-system/sw/bin:/home/emory/.nix-profile/bin:/nix/profile/bin
                                                                                             WORK_DIR="$( mktemp --directory )"
                                                                                             # mkdir --parents ${ work-directory }
                                                                                             cp --recursive ${ package }/. "$WORK_DIR"
-                                                                                            cd "$WORK_DIR"
-                                                                                            pwd
-                                                                                            ls -lah .
                                                                                             npm ${ command }
                                                                                         '' ;
                                                                                 } ;
