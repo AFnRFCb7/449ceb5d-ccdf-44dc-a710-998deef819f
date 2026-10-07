@@ -99,17 +99,15 @@
                                                             lib.mkOption
                                                                 {
                                                                     default =
-                                                                        { command , name , package , work-directory } :
+                                                                        { command , name , package } :
                                                                             _pkgs.writeShellApplication
                                                                                 {
                                                                                     name = name ;
                                                                                     runtimeInputs = [ _pkgs.nodejs ] ;
                                                                                     text =
                                                                                         ''
+                                                                                            cd ${ package }
                                                                                             PATH="$PATH":/run/current-system/sw/bin:/home/emory/.nix-profile/bin:/nix/profile/bin
-                                                                                            WORK_DIR="$( mktemp --directory )"
-                                                                                            # mkdir --parents ${ work-directory }
-                                                                                            cp --recursive ${ package }/. "$WORK_DIR"
                                                                                             npm ${ command }
                                                                                         '' ;
                                                                                 } ;
