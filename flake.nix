@@ -95,24 +95,6 @@
                                                                                     '' ;
                                                                     type = _lib.types.functionTo _lib.types.package ;
                                                                 } ;
-                                                        execute =
-                                                            lib.mkOption
-                                                                {
-                                                                    default =
-                                                                        { command , name , package } :
-                                                                            _pkgs.writeShellApplication
-                                                                                {
-                                                                                    name = name ;
-                                                                                    runtimeInputs = [ _pkgs.nodejs ] ;
-                                                                                    text =
-                                                                                        ''
-                                                                                            cd ${ package }
-                                                                                            PATH="$PATH":/run/current-system/sw/bin:/home/emory/.nix-profile/bin:/nix/profile/bin
-                                                                                            npm ${ command }
-                                                                                        '' ;
-                                                                                } ;
-                                                                    type = _lib.types.functionTo _lib.types.package ;
-                                                                } ;
                                                         fetch =
                                                             _lib.mkOption
                                                                 {
